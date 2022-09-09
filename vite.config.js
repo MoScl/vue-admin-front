@@ -9,9 +9,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
-const envFiles = [
-  `.env.${NODE_ENV}`
-]
+const envFiles = [`.env.${NODE_ENV}`]
 for (const file of envFiles) {
   const envConfig = dotenv.parse(fs.readFileSync(file))
   for (const k in envConfig) {
@@ -24,24 +22,22 @@ export default defineConfig({
     port: server.port,
     open: true,
     proxy: {
-      [process.env.VITE_BASE_API]: {// 使用环境变量中的值
-        target: 'http://localhost:8088/',
+      [process.env.VITE_BASE_API]: {
+        target: 'http://159.75.210.114:9605/',
         changeOrigin: true,
         pathRewrite: { // 重写真实请求地址
           ['^' + process.env.VITE_BASE_API]: ''
         }
-      },
+      }
     }
   },
-  plugins: [
-    vue(),
+  plugins: [vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver()]
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
-    })
-  ],
+      resolvers: [ElementPlusResolver()]
+    })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

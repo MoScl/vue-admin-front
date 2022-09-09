@@ -1,9 +1,9 @@
 <script setup>
 import TheWelcome from '@/components/TheWelcome.vue'
 import api from '@/api/data'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 
-const getData = async () => {
+const getData = async() => {
   const res = await api.getData({})
   console.log(res)
 }
