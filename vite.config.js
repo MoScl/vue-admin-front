@@ -42,5 +42,16 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // additionalData: ['@import "@/assets/styles/variables.scss";', '@use "@/assets/styles/element/index.scss"  as *;'],
+        // additionalData: '@import "@/assets/styles/variables.scss";',
+        additionalData: '@import "@/assets/styles/variables.scss";',
+        // 支持内联 JavaScript
+        // javascriptEnabled: true,
+      }
+    }
+  },
 })
