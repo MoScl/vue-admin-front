@@ -7,7 +7,7 @@
 
 <style lang="scss" scoped>
 div {
-  color: $--color-primary;
+  color: var(--el-color-primary);
 }
 </style>
 

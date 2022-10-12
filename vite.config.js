@@ -35,8 +35,9 @@ export default defineConfig({
     AutoImport({
       resolvers: [ElementPlusResolver()]
     }),
+    // 按需引入，主题色的配置，需要加上 importStyle: 'sass'
     Components({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
     })],
   resolve: {
     alias: {
@@ -46,11 +47,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // additionalData: ['@import "@/assets/styles/variables.scss";', '@use "@/assets/styles/element/index.scss"  as *;'],
-        // additionalData: '@import "@/assets/styles/variables.scss";',
-        additionalData: '@import "@/assets/styles/variables.scss";',
+        // 覆盖掉element-plus包中的主题变量文件
+        additionalData: '@use "@/styles/element/index.scss" as *;',
         // 支持内联 JavaScript
-        // javascriptEnabled: true,
+        javascriptEnabled: true,
       }
     }
   },
