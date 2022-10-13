@@ -1,5 +1,4 @@
-import { ElMessage } from 'element-plus'
-// import { getToken } from '@plugin/icss-plugin/lib/utils/auth'
+import { getToken } from '@/utils/auth'
 // import store from '@/store'
 
 const ApiInterceptors = {
@@ -23,11 +22,10 @@ const ApiInterceptors = {
     if (config.Authorization) {
       // let each request carry token
       config.headers['token'] = config.Authorization
-    }
-    // else if (getToken()) {
+    } else if (getToken()) {
     // let each request carry token
-    // config.headers['token'] = getToken()
-    // }
+    config.headers['token'] = getToken()
+    }
     return config
   },
   error => {

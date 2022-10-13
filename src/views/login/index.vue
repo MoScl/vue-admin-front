@@ -13,6 +13,7 @@
     console.log(res)
   }
   onMounted(() => {
+    ElMessage.success('Congrats, this is a success message.')
     getData()
   })
   </script>

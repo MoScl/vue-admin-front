@@ -15,6 +15,5 @@ const router = createRouter({
       component: () => import('@/views/lottery/index.vue')
     }]
 })
-console.log(router);
 
 export default router

@@ -31,6 +31,9 @@ export default defineConfig({
       }
     }
   },
+  build: {
+    sourcemap: false, //true 生成source map 文件
+  },
   plugins: [vue(),
     AutoImport({
       resolvers: [ElementPlusResolver()]
