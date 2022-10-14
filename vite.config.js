@@ -53,7 +53,7 @@ export default defineConfig({
         // 覆盖掉element-plus包中的主题变量文件
         additionalData: '@use "@/styles/element/index.scss" as *;',
         // 支持内联 JavaScript
-        javascriptEnabled: true,
+        // javascriptEnabled: true,
       }
     }
   },

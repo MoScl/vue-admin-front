@@ -1,17 +1,16 @@
 <template>
   <div>
     home
-    <el-button type="primary">Primary</el-button>
+    <el-button type="primary" @click="handlerClick">home</el-button>
   </div>
 </template>
 
 <script setup>
-  import { onMounted } from 'vue'
-  
-  onMounted(() => {
+  const handlerClick = () => {
     ElMessage.success('Congrats, this is a success message.')
-  })
-  </script>
+    router.push('/login')
+  }
+</script>
 
 <style lang="scss" scoped>
 div {
